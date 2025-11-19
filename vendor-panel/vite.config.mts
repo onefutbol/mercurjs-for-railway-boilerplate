@@ -41,7 +41,9 @@ export default defineConfig(({ mode }) => {
       ),
     },
     server: {
-      open: true,
+      host: true,
+      port: parseInt(process.env.PORT || '5173'),
+      open: false,
     },
     optimizeDeps: {
       entries: [],
