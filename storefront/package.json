@@ -10,6 +10,9 @@
     "start": "pnpm run launcher start",
     "lint": "next lint"
   },
+  "resolutions": {
+    "glob": ">=10.5.0"
+  },
   "dependencies": {
     "@headlessui/react": "^2.2.1",
     "@hookform/resolvers": "^3.10.0",
@@ -28,7 +31,7 @@
     "js-cookie": "^3.0.5",
     "lodash": "^4.17.21",
     "medusajs-launch-utils": "^0.0.18",
-    "next": "15.1.4",
+    "next": "^15.1.6",
     "next-intl": "^3.26.3",
     "react": "^19.0.0",
     "react-country-flag": "^3.1.0",
