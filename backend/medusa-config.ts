@@ -63,7 +63,8 @@ module.exports = defineConfig({
               access_key_id: process.env.S3_ACCESS_KEY_ID,
               secret_access_key: process.env.S3_SECRET_ACCESS_KEY,
               upload_acl: 'private',
-              prefix: 'uploads'
+              file_url: process.env.S3_PUBLIC_URL,
+              prefix: 'uploads/'
             }
           }
         ]
