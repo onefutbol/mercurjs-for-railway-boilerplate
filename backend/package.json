@@ -26,6 +26,7 @@
   "dependencies": {
     "@medusajs/admin-sdk": "2.10.2",
     "@medusajs/cli": "2.10.2",
+    "@medusajs/file-s3": "^2.12.5",
     "@medusajs/framework": "2.10.2",
     "@medusajs/medusa": "2.10.2",
     "@mercurjs/algolia": "^1.4.3",

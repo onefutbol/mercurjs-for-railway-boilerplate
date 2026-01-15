@@ -54,23 +54,16 @@ module.exports = defineConfig({
       resolve: '@medusajs/medusa/file',
       options: {
         providers: [
-          ...(process.env.MINIO_ENDPOINT && process.env.MINIO_ACCESS_KEY && process.env.MINIO_SECRET_KEY ? [{
-            resolve: './src/modules/minio-file',
-            id: 'minio',
+          {
+            resolve: '@medusajs/file-s3',
+            id: 's3',
             options: {
-              endPoint: process.env.MINIO_ENDPOINT,
-              accessKey: process.env.MINIO_ACCESS_KEY,
-              secretKey: process.env.MINIO_SECRET_KEY,
-              bucket: process.env.MINIO_BUCKET // Optional, defaults to 'medusa-media'
+              bucket: process.env.S3_BUCKET,
+              region: process.env.S3_REGION,
+              access_key_id: process.env.S3_ACCESS_KEY_ID,
+              secret_access_key: process.env.S3_SECRET_ACCESS_KEY
             }
-          }] : [{
-            resolve: '@medusajs/medusa/file-local',
-            id: 'local',
-            options: {
-              upload_dir: 'static',
-              backend_url: `${process.env.BACKEND_URL || 'http://localhost:9000'}/static`
-            }
-          }])
+          }
         ]
       }
     },
