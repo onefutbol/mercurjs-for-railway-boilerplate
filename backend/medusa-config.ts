@@ -87,26 +87,20 @@ module.exports = defineConfig({
       }
     ] : []),
     {
-      resolve: '@medusajs/payment',
+      resolve: '@medusajs/medusa/payment',
       options: {
         providers: [
           {
-            resolve: '@medusajs/payment-manual',
             id: 'manual',
           },
-          ...(process.env.STRIPE_SECRET_API_KEY &&
-          process.env.STRIPE_WEBHOOK_SECRET &&
-          process.env.STRIPE_CONNECT_CLIENT_ID ? [
+          ...(process.env.STRIPE_SECRET_API_KEY ? [
             {
               resolve:
                 '@mercurjs/payment-stripe-connect/providers/stripe-connect',
-              id: 'stripe',
+              id: 'stripe-connect',
               options: {
                 apiKey: process.env.STRIPE_SECRET_API_KEY,
-                webhookSecret: process.env.STRIPE_WEBHOOK_SECRET,
-                connect_client_id:
-                  process.env.STRIPE_CONNECT_CLIENT_ID,
-              },
+              }
             }
           ] : [])
         ]
