@@ -91,23 +91,13 @@ module.exports = defineConfig({
       options: {
         providers: [
           {
-            id: 'manual',
-          },
-          ...(process.env.STRIPE_SECRET_API_KEY &&
-          process.env.STRIPE_WEBHOOK_SECRET &&
-          process.env.STRIPE_CONNECT_CLIENT_ID ? [
-            {
-              resolve:
-                '@mercurjs/payment-stripe-connect/providers/stripe-connect',
-              id: 'stripe-connect',
-              options: {
-                apiKey: process.env.STRIPE_SECRET_API_KEY,
-                webhookSecret: process.env.STRIPE_WEBHOOK_SECRET,
-                connect_client_id:
-                  process.env.STRIPE_CONNECT_CLIENT_ID,
-              },
+            resolve:
+              '@mercurjs/payment-stripe-connect/providers/stripe-connect',
+            id: 'stripe-connect',
+            options: {
+              apiKey: process.env.STRIPE_SECRET_API_KEY
             }
-          ] : [])
+          }
         ]
       }
     },
