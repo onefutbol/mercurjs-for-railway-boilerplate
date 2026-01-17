@@ -93,10 +93,14 @@ module.exports = defineConfig({
           {
             resolve:
               '@mercurjs/payment-stripe-connect/providers/stripe-connect',
-            id: 'stripe',
+            id: 'stripe-connect',
             options: {
               apiKey: process.env.STRIPE_SECRET_API_KEY
             }
+          },
+          {
+            resolve: '@rokmohar/medusa-payment-manual',
+            id: 'manual'
           }
         ]
       }
