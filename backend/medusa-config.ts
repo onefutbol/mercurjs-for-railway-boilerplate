@@ -91,6 +91,7 @@ module.exports = defineConfig({
       options: {
         providers: [
           {
+            resolve: '@medusajs/payment-manual',
             id: 'manual',
           },
           ...(process.env.STRIPE_SECRET_API_KEY &&
@@ -105,7 +106,7 @@ module.exports = defineConfig({
                 webhookSecret: process.env.STRIPE_WEBHOOK_SECRET,
                 connect_client_id:
                   process.env.STRIPE_CONNECT_CLIENT_ID,
-              }
+              },
             }
           ] : [])
         ]
