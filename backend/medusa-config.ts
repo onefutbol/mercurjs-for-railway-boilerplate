@@ -97,6 +97,10 @@ module.exports = defineConfig({
             options: {
               apiKey: process.env.STRIPE_SECRET_API_KEY
             }
+          },
+          {
+            resolve: '@medusajs/payment-manual',
+            id: 'manual'
           }
         ]
       }
