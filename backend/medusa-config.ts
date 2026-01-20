@@ -51,24 +51,24 @@ module.exports = defineConfig({
   ],
   modules: [
     {
-      resolve: '@medusajs/medusa/file',
+      resolve: "@medusajs/medusa/file",
       options: {
         providers: [
           {
-            resolve: '@medusajs/file-s3',
-            id: 's3',
+            resolve: "@medusajs/file-s3",
+            id: "s3",
             options: {
               bucket: process.env.S3_BUCKET,
               region: process.env.S3_REGION,
               access_key_id: process.env.S3_ACCESS_KEY_ID,
               secret_access_key: process.env.S3_SECRET_ACCESS_KEY,
-              upload_acl: 'private',
               file_url: process.env.S3_PUBLIC_URL,
-              prefix: 'uploads/'
-            }
-          }
-        ]
-      }
+              prefix: "uploads/",
+              upload_acl: null,
+            },
+          },
+        ],
+      },
     },
     ...(process.env.REDIS_URL ? [
       {
