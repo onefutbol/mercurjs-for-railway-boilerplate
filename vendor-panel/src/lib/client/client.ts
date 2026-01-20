@@ -37,6 +37,7 @@ export const uploadFilesQuery = async (files: any[]) => {
   for (const { file } of files) {
     formData.append("files", file)
   }
+  console.log('vendor-panel > formData: ', formData)
 
   return await fetch(`${backendUrl}/vendor/uploads`, {
     method: "POST",
